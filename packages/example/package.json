@@ -1,16 +1,16 @@
 {
   "name": "example",
   "version": "0.0.0",
-  "description": "",
+  "description": "description",
   "license": "",
   "author": {
-    "name": "Jens Döllmann",
-    "email": "jens@doellmann.com",
-    "url": "https://github.com/JensDll"
+    "name": "name",
+    "email": "name@example.com",
+    "url": "https://"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/JensDll/npm",
+    "url": "https://",
     "directory": "packages/example"
   },
   "keywords": [],
