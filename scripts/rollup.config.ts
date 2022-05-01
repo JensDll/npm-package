@@ -1,5 +1,5 @@
 import replace from '@rollup/plugin-replace'
-import { OutputOptions, RollupOptions } from 'rollup'
+import type { OutputOptions, RollupOptions } from 'rollup'
 import esbuild, { minify } from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 
@@ -80,7 +80,7 @@ const output = (name: PackageName): OutputReturn => ({
   }
 })
 
-const baseExternals = []
+const baseExternals: string[] = []
 
 const exampleInput = input('example')
 const exampleOutput = output('example')

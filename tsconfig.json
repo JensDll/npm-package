@@ -7,17 +7,16 @@
     "isolatedModules": true,
     "preserveValueImports": true,
     "importsNotUsedAsValues": "error",
-    "allowJs": false,
+    "allowJs": true,
+    "checkJs": true,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "paths": {
-      "example": ["./packages/example/src"]
-    },
     "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"]
   },
-  "include": ["*.ts", "dts/*.d.ts", "packages/**/*"]
+  "include": ["*.ts", "scripts", "dts", "packages/**/*"],
+  "exclude": ["**/dist", "packages/*/index.cjs"]
 }
