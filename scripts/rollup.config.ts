@@ -1,6 +1,3 @@
-import path from 'path'
-
-import alias from '@rollup/plugin-alias'
 import replace from '@rollup/plugin-replace'
 import { OutputOptions, RollupOptions } from 'rollup'
 import esbuild, { minify } from 'rollup-plugin-esbuild'
@@ -19,6 +16,7 @@ const plugin = {
   replace: {
     esm: replace({
       preventAssignment: true,
+      objectGuard: true,
       __DEV__: "(process.env.NODE_ENV !== 'production')"
     }),
     dev: replace({

@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "build": "node --experimental-loader esbuild-node-loader scripts/build.ts",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "dev": "rollup --config --watch"
   },
   "keywords": [],
   "dependencies": {
