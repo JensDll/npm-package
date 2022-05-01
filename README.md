@@ -1,0 +1,1 @@
+# Npm package starter template
