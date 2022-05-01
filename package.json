@@ -5,7 +5,6 @@
     "test": "jest --runInBand",
     "dev": "rollup --config --watch"
   },
-  "keywords": [],
   "dependencies": {
     "@rollup/plugin-alias": "3.1.9",
     "@rollup/plugin-replace": "4.0.0",
