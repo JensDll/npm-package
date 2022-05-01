@@ -1,3 +1,3 @@
-# Npm package starter template
+# Npm starter template
 
-Boilerplate project structure for publishing npm packages.
+Starter template for publishing npm packages.
