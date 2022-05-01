@@ -1,6 +1,6 @@
 import { add } from '../src'
 
-it('1 + 2 = 3', () => {
-  const result = add(1, 2)
-  expect(result).toBe(3)
+it('Quick Maths', () => {
+  const result = add(2, 2)
+  expect(result).toBe(4)
 })
