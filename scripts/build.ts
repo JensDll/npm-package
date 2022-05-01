@@ -8,7 +8,12 @@ await run('rollup', ['--config'])
 
 console.log()
 console.log('Formatting declaration files ...')
-await run('pnpm', ['exec', 'prettier', '--write', '**/dist/index.d.ts'])
+await run('pnpm', [
+  'exec',
+  'prettier',
+  '--write',
+  'packages/**/dist/index.d.ts'
+])
 
 console.log()
 console.log('Copying relevant files to publish folder ...')
@@ -22,7 +27,7 @@ await Promise.all([
   // Copy CommonJS entry point
   fs.copy(`${basePath}/index.cjs`, 'publish/index.cjs'),
   // Copy dist content
-  fs.copy(`${basePath}/dist`, `publish/dist`)
+  fs.copy(`${basePath}/dist`, 'publish/dist')
 ])
 
 console.log()
