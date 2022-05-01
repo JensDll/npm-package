@@ -1,0 +1,30 @@
+{
+  "name": "example",
+  "version": "0.0.0",
+  "description": "",
+  "license": "",
+  "author": {
+    "name": "Jens Döllmann",
+    "email": "jens@doellmann.com",
+    "url": "https://github.com/JensDll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JensDll/npm",
+    "directory": "packages/example"
+  },
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.iife.js",
+  "jsdelivr": "./dist/index.iife.js"
+}
