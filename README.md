@@ -1,6 +1,6 @@
-# Npm starter template
+# npm-package
 
-Boilerplate project for publishing npm packages in TypeScript.
+Template for building npm packages in TypeScript.
 
 ## Features
 
