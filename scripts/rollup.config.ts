@@ -82,28 +82,32 @@ const output = (name: PackageName): OutputReturn => ({
 
 const baseExternals: ExternalOption = []
 
-const exampleInput = input('example')
-const exampleOutput = output('example')
+const packages = {
+  main: {
+    input: input('example'),
+    output: output('example')
+  }
+}
 
 const configs: RollupOptions[] = [
   {
-    input: exampleInput,
-    output: [exampleOutput.esm],
+    input: packages.main.input,
+    output: [packages.main.output.esm],
     plugins: [plugin.replace.esm, plugin.esbuild]
   },
   {
-    input: exampleInput,
-    output: exampleOutput.dev,
+    input: packages.main.input,
+    output: packages.main.output.dev,
     plugins: [plugin.replace.dev, plugin.esbuild]
   },
   {
-    input: exampleInput,
-    output: exampleOutput.prod,
+    input: packages.main.input,
+    output: packages.main.output.prod,
     plugins: [plugin.replace.prod, plugin.esbuild]
   },
   {
-    input: exampleInput,
-    output: exampleOutput.dts,
+    input: packages.main.input,
+    output: packages.main.output.dts,
     plugins: [plugin.dts]
   }
 ]
