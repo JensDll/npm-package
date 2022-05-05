@@ -3,8 +3,6 @@ import type { OutputOptions, RollupOptions, ExternalOption } from 'rollup'
 import esbuild, { minify } from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
 
-type PackageName = 'example'
-
 const plugin = {
   dts: dts(),
   esbuild: esbuild({
@@ -33,6 +31,8 @@ const plugin = {
     })
   }
 } as const
+
+type PackageName = 'example'
 
 const input = (name: PackageName) => `packages/${name}/src/index.ts`
 
