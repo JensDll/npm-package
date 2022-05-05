@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
+    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
@@ -18,5 +19,5 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"]
   },
   "include": ["*.ts", "scripts", "dts", "packages"],
-  "exclude": ["**/dist", "packages/*/index.cjs"]
+  "exclude": ["**/dist/**/*"]
 }
