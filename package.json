@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "build": "node --experimental-loader esbuild-node-loader scripts/build.ts",
-    "test": "jest",
-    "dev": "rollup --config --watch"
+    "dev": "rollup --config --watch",
+    "test": "jest"
   },
   "dependencies": {
     "@rollup/plugin-alias": "3.1.9",
