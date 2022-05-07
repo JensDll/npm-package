@@ -1,7 +1,11 @@
+import path from 'path'
+
 import replace from '@rollup/plugin-replace'
-import type { OutputOptions, RollupOptions, ExternalOption } from 'rollup'
+import type { RollupOptions, ExternalOption } from 'rollup'
 import esbuild, { minify } from 'rollup-plugin-esbuild'
 import dts from 'rollup-plugin-dts'
+
+const rootDir = path.resolve(__dirname, '..')
 
 const plugin = {
   dts: dts(),
@@ -34,80 +38,60 @@ const plugin = {
 
 type PackageName = 'example'
 
-const input = (name: PackageName) => `packages/${name}/src/index.ts`
-
-type OutputReturn = {
-  readonly esm: OutputOptions
-  readonly dev: OutputOptions[]
-  readonly prod: OutputOptions[]
-  readonly dts: OutputOptions
-}
-
-const output = (name: PackageName): OutputReturn => ({
-  esm: {
-    file: `packages/${name}/dist/index.mjs`,
-    format: 'esm'
-  },
-  dev: [
-    {
-      file: `packages/${name}/dist/index.cjs`,
-      format: 'cjs'
-    },
-    {
-      file: `packages/${name}/dist/index.iife.js`,
-      format: 'iife',
-      name: 'Example',
-      extend: true
-    }
-  ],
-  prod: [
-    {
-      file: `packages/${name}/dist/index.min.cjs`,
-      format: 'cjs',
-      plugins: [plugin.minify]
-    },
-    {
-      file: `packages/${name}/dist/index.iife.min.js`,
-      format: 'iife',
-      name: 'Example',
-      extend: true,
-      plugins: [plugin.minify]
-    }
-  ],
-  dts: {
-    file: `packages/${name}/dist/index.d.ts`,
-    format: 'esm'
-  }
-})
+const input = (name: PackageName, file = 'index') =>
+  `packages/${name}/src/${file}.ts`
 
 const baseExternals: ExternalOption = []
 
-const packages = {
-  main: {
-    input: input('example'),
-    output: output('example')
-  }
-}
-
 const configs: RollupOptions[] = [
   {
-    input: packages.main.input,
-    output: [packages.main.output.esm],
+    input: input('example'),
+    output: {
+      file: 'packages/example/dist/index.mjs',
+      format: 'esm'
+    },
     plugins: [plugin.replace.esm, plugin.esbuild]
   },
   {
-    input: packages.main.input,
-    output: packages.main.output.dev,
+    input: input('example'),
+    output: [
+      {
+        file: `packages/example/dist/index.cjs`,
+        format: 'cjs'
+      },
+      {
+        file: `packages/example/dist/index.iife.js`,
+        format: 'iife',
+        name: 'Example',
+        extend: true
+      }
+    ],
     plugins: [plugin.replace.dev, plugin.esbuild]
   },
   {
-    input: packages.main.input,
-    output: packages.main.output.prod,
+    input: input('example'),
+    output: [
+      {
+        file: `packages/example/dist/index.min.cjs`,
+        format: 'cjs',
+        plugins: [plugin.minify]
+      },
+      {
+        file: `packages/example/dist/index.iife.min.js`,
+        format: 'iife',
+        name: 'Example',
+        extend: true,
+        plugins: [plugin.minify]
+      }
+    ],
     plugins: [plugin.replace.prod, plugin.esbuild]
   },
   {
-    input: packages.main.input,
-    output: packages.main.output.dts,
+    input: input('example'),
+    output: {
+      file: 'packages/example/dist/index.d.ts',
+      format: 'esm'
+    },
     plugins: [plugin.dts]
   }
 ]
