@@ -3,26 +3,24 @@
   "scripts": {
     "build": "node --experimental-loader esbuild-node-loader scripts/build.ts",
     "dev": "rollup --config --watch",
-    "test": "jest"
+    "test": "vitest run"
   },
   "dependencies": {
     "@rollup/plugin-alias": "3.1.9",
     "@rollup/plugin-node-resolve": "13.3.0",
     "@rollup/plugin-replace": "4.0.0",
     "@types/fs-extra": "9.0.13",
-    "@types/jest": "27.5.0",
     "@types/node": "17.0.31",
     "esbuild": "0.14.38",
     "esbuild-node-loader": "0.8.0",
     "esbuild-register": "3.3.2",
     "execa": "6.1.0",
     "fs-extra": "10.1.0",
-    "jest": "28.1.0",
     "prettier": "2.6.2",
-    "rollup": "2.72.0",
+    "rollup": "2.72.1",
     "rollup-plugin-dts": "4.2.1",
     "rollup-plugin-esbuild": "4.9.1",
-    "ts-jest": "28.0.1",
-    "typescript": "4.6.4"
+    "typescript": "4.6.4",
+    "vitest": "0.12.2"
   }
 }

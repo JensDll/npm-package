@@ -8,16 +8,16 @@
     "isolatedModules": true,
     "preserveValueImports": true,
     "importsNotUsedAsValues": "error",
-    "allowJs": true,
-    "checkJs": true,
+    "allowJs": false,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"]
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"],
+    "types": ["vitest/globals", "node"]
   },
-  "include": ["*.ts", "scripts", "dts", "**/__test__", "packages/*/src"],
+  "include": ["*.ts", "scripts", "dts", "packages/*/src", "packages/*/tests"],
   "exclude": ["**/dist/**/*"]
 }
