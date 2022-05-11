@@ -6,7 +6,6 @@ import replace from '@rollup/plugin-replace'
 export default defineConfig({
   test: {
     globals: true,
-    environment: 'node',
     clearMocks: true
   },
   plugins: [
