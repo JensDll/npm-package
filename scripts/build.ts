@@ -1,10 +1,12 @@
+import path from 'node:path'
+
 import fs from 'fs-extra'
 
-import { run } from './utils'
+import { rootDir, run } from './utils'
 
-const basePath = 'packages/example'
+const mainPath = path.join(rootDir, 'packages', 'example')
 
-await run('rollup', ['--config'])
+await run('rollup', ['--config', '--configPlugin', 'esbuild'])
 
 console.log()
 console.log('Formatting declaration files ...')
@@ -18,16 +20,11 @@ await run('pnpm', [
 console.log()
 console.log('Copying relevant files to publish folder ...')
 await Promise.all([
-  // Copy LICENSE
   fs.copy('LICENSE', 'publish/LICENSE'),
-  // Copy README.md
   fs.copy('README.md', 'publish/README.md'),
-  // Copy package.json
-  fs.copy(`${basePath}/package.json`, 'publish/package.json'),
-  // Copy CommonJS entry point
-  fs.copy(`${basePath}/index.cjs`, 'publish/index.cjs'),
-  // Copy dist content
-  fs.copy(`${basePath}/dist`, 'publish/dist')
+  fs.copy(`${mainPath}/package.json`, 'publish/package.json'),
+  fs.copy(`${mainPath}/index.cjs`, 'publish/index.cjs'),
+  fs.copy(`${mainPath}/dist`, 'publish/dist')
 ])
 
 console.log()

@@ -1,4 +1,6 @@
-import { execa, type Options } from 'execa'
+import { fileURLToPath } from 'node:url'
+
+import { type Options, execa } from 'execa'
 
 export function run(
   file: string,
@@ -7,3 +9,5 @@ export function run(
 ) {
   return execa(file, args, { ...options, stdio: 'inherit' })
 }
+
+export const rootDir = fileURLToPath(new URL('..', import.meta.url))

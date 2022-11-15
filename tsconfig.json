@@ -1,22 +1,27 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "dist",
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
     "isolatedModules": true,
     "preserveValueImports": true,
     "importsNotUsedAsValues": "error",
-    "allowJs": false,
+    "allowJs": true,
+    "checkJs": true,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "lib": ["ESNext", "DOM", "DOM.Iterable", "ScriptHost"],
-    "types": ["vitest/globals", "node"]
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vitest/globals", "node"],
+    "paths": {
+      "@internal/shared": ["packages/shared/src"],
+      "~/shared/*": ["packages/shared/src/*"],
+      "~/example/*": ["packages/example/src/*"]
+    }
   },
   "include": ["*.ts", "scripts", "dts", "packages/*/src", "packages/*/tests"],
   "exclude": ["**/dist/**/*"]
